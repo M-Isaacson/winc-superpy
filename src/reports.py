@@ -19,7 +19,9 @@ cfg = settings.Settings()
 def inventory(product: str, output: str):
     """Shows inventory of all products or one product."""
     df = pd.read_csv(
-        cfg.dataset_properties("products")["path"], delimiter=cfg.csv_delimiter(), index_col="id"
+        cfg.dataset_properties("products")["path"],
+        delimiter=cfg.csv_delimiter(),
+        index_col="id",
     )
     # Remove unneccessary columns from dataframe.
     df.drop(columns=["sum_costs", "sum_revenues"], inplace=True)
